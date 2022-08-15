@@ -61,17 +61,12 @@ let shopItemsData = [{
 
 //local stORAGE para que en la applicacion se muestren los datos de los items agrgados o removidos
 let basket = JSON.parse(localStorage.getItem("data")) || [];
-//funcion para cambiar los detalles de cada card.
+//funcion para cambiar los detalles de cada card.(template)
 let generateShop = () => {
     return (shop.innerHTML = shopItemsData
         .map((x) => {
-            let {
-                id,
-                name,
-                price,
-                description,
-                img
-            } = x;
+            let {id, name,price,description,img} = x;
+            let search = basket.find((x) => x.id === id) || [];
             return `
         <div  id=product-id-${id} class="item">
             <img width="220" height="280" src=${img} alt="">
@@ -82,7 +77,9 @@ let generateShop = () => {
                     <h2>$ ${price}</h2>
                     <div class="buttons">
                         <i onclick="decrement(${id})" class="bi bi-dash-lg"></i>
-                        <div id=${id} class="quantity">0</div>
+                        <div id=${id} class="quantity">\
+                        ${search.item === undefined? 0: search.item}
+                        </div>
                         <i onclick="increment(${id})" class="bi bi-plus"></i>
                 </div>
             </div>
@@ -115,12 +112,13 @@ let increment = (id) => {
 let decrement = (id) => {
     let selectedItem = id;
     let search = basket.find((x) => x.id === selectedItem.id);
-
-    if (search.item === 0) return;
+    if (search === undefined) return
+    else if (search.item === 0) return;
     else {
         search.item -= 1;
     }
     localStorage.setItem("data", JSON.stringify(basket));
+    basket = basket.filter((x) => x.item !== 0);
     //console.log( basket);
     update(selectedItem.id);
 };

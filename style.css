@@ -9,6 +9,10 @@ body {
     font-family: sans-serif;
 }
 
+i{
+    cursor: pointer;
+}
+
 
 .navbar {
     display: flex;
@@ -16,7 +20,21 @@ body {
     justify-content: space-between;
     background-color: rgb(255, 207, 207);
     color:black;
-    padding: 25px 60px;
+    padding: 30px 60px;
+}
+
+h2{
+    margin-top: 10px;
+}
+
+.navbar a{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    color:black;
+    padding: 15px 40px;
+    text-decoration: none;
+    font-weight: bold;
 }
 
 .cart {
