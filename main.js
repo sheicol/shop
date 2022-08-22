@@ -103,9 +103,11 @@ let increment = (id) => {
     } else {
         search.item += 1;
     }
-    localStorage.setItem("data", JSON.stringify(basket));
+    
     //console.log( basket);
     update(selectedItem.id);
+    
+    localStorage.setItem("data", JSON.stringify(basket));
 };
 
 //funciones para disminuir items de c/card
@@ -117,10 +119,12 @@ let decrement = (id) => {
     else {
         search.item -= 1;
     }
-    localStorage.setItem("data", JSON.stringify(basket));
+    
     basket = basket.filter((x) => x.item !== 0);
     //console.log( basket);
     update(selectedItem.id);
+
+    localStorage.setItem("data", JSON.stringify(basket));
 };
 
 //funcion para actualizar los items de c/card
