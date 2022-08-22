@@ -106,7 +106,6 @@ let increment = (id) => {
     
     //console.log( basket);
     update(selectedItem.id);
-    
     localStorage.setItem("data", JSON.stringify(basket));
 };
 
@@ -114,16 +113,17 @@ let increment = (id) => {
 let decrement = (id) => {
     let selectedItem = id;
     let search = basket.find((x) => x.id === selectedItem.id);
-    if (search === undefined) return
+
+    if (search === undefined) return;
     else if (search.item === 0) return;
     else {
         search.item -= 1;
     }
-    
+    update(selectedItem.id);
+    //esta cesta es un array
     basket = basket.filter((x) => x.item !== 0);
     //console.log( basket);
-    update(selectedItem.id);
-
+    //the localstorage va en al final para poder hacer los updates pertinentes.
     localStorage.setItem("data", JSON.stringify(basket));
 };
 
