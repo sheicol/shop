@@ -1,63 +1,7 @@
 let shop = document.getElementById('shop');
 
 //almacenamiento de los datos de cada card
-let shopItemsData = [{
-        id: "SetLorena",
-        name: "Set Lorena",
-        price: 170,
-        description: "Lorem ipsum dolor sit, amet consectetur adipisicing elit.",
-        img: "multimedia/b&gcorset.jpeg"
-    },
-    {
-        id: "Redset",
-        name: "Red Set",
-        price: 120,
-        description: "Lorem ipsum dolor sit, amet consectetur adipisicing elit.",
-        img: "multimedia/redset.jpeg"
-    },
-    {
-        id: "DreamSEt",
-        name: "Dream Set",
-        price: 130,
-        description: "Lorem ipsum dolor sit, amet consectetur adipisicing elit.",
-        img: "multimedia/blackcorset.jpeg"
-    },
-    {
-        id: "Blackset",
-        name: "Black Set",
-        price: 150,
-        description: "Lorem ipsum dolor sit, amet consectetur adipisicing elit.",
-        img: "multimedia/blackset.jpeg"
-    },
-    {
-        id: "GoldBlackPantie",
-        name: "Lorena Pantie",
-        price: 50,
-        description: "Lorem ipsum dolor sit, amet consectetur adipisicing elit.",
-        img: "multimedia/goldblackpanti.jpeg"
-    },
-    {
-        id: "RedPantie",
-        name: "Red Pantie",
-        price: 50,
-        description: "Lorem ipsum dolor sit, amet consectetur adipisicing elit.",
-        img: "multimedia/redpantie.jpeg"
-    },
-    {
-        id: " DReampantie",
-        name: "Dream Pantie",
-        price: 50,
-        description: "Lorem ipsum dolor sit, amet consectetur adipisicing elit.",
-        img: "multimedia/blackcorpant.jpeg"
-    },
-    {
-        id: "blackpanti",
-        name: "Black Pantie",
-        price: 50,
-        description: "Lorem ipsum dolor sit, amet consectetur adipisicing elit.",
-        img: "multimedia/blacpanti.jpeg"
-    },
-]
+
 
 //local stORAGE para que en la applicacion se muestren los datos de los items agrgados o removidos
 let basket = JSON.parse(localStorage.getItem("data")) || [];
