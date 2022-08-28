@@ -191,4 +191,8 @@ footer{
     background-color: rgb(255, 207, 207);
     color: black;
     height: 5rem;
+    font-weight: bolder;
+    text-align: center;
+    padding: 50px;
+    font-size: large;
 }
