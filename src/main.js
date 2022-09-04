@@ -1,5 +1,4 @@
 let shop = document.getElementById('shop');
-
 //almacenamiento de los datos de cada card
 
 
@@ -9,7 +8,13 @@ let basket = JSON.parse(localStorage.getItem("data")) || [];
 let generateShop = () => {
     return (shop.innerHTML = shopItemsData
         .map((x) => {
-            let {id, name,price,description,img} = x;
+            let {
+                id,
+                name,
+                price,
+                description,
+                img
+            } = x;
             let search = basket.find((x) => x.id === id) || [];
             return `
         <div  id=product-id-${id} class="item">
@@ -47,7 +52,7 @@ let increment = (id) => {
     } else {
         search.item += 1;
     }
-    
+
     //console.log( basket);
     update(selectedItem.id);
     localStorage.setItem("data", JSON.stringify(basket));

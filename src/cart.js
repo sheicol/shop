@@ -1,3 +1,4 @@
+
 let label = document.getElementById("label");
 let ShoppingCart = document.getElementById("shopping-cart");
 
@@ -10,7 +11,7 @@ let calculation = () => {
 calculation();
 
 let generateCartItems = ()=> {
-    if(basket.length !== 0){
+    if(basket.length !== 0){ //operador logico NOT
         return (ShoppingCart.innerHTML = basket
             .map((x) => {
                 let { id, item } = x;
@@ -57,7 +58,7 @@ let increment = (id) => {
     let selectedItem = id;
     let search = basket.find((x) => x.id === selectedItem.id);
 
-    if (search === undefined) {
+    if (search === undefined) { //OPERADOR TERNARIO
         basket.push({
             id: selectedItem.id,
             item: 1,
@@ -89,6 +90,7 @@ let decrement = (id) => {
     localStorage.setItem("data", JSON.stringify(basket));
 };
 
+
 let update = (id) => {
     let search = basket.find((x) => x.id === id);
     generateCartItems();
@@ -101,6 +103,24 @@ let removeItem = (id) =>{
     // console.log(selectedItem.id);
     basket = basket.filter((x) => x.id !== selectedItem.id);
     generateCartItems();
-    
     localStorage.setItem("data", JSON.stringify(basket));
 };
+
+let TotalAmount = () => {
+    if(basket.length !==0){
+        let amount = basket
+        .map((x) => {
+            let {item, id} = x;
+            let search = shopItemsData.find((y) => y.id === id) || [];
+            
+            return item * search.price;
+        })
+        .reduce((x, y) => x + y, 0);
+        //console.log(amount); 
+        label.innerHTML = `
+        <h2>Total Bill : $ ${amount}</h2>
+        <button class = "checkout">Checkout</button>
+        <button class = "removeAll">Clear Cart</button>
+        `;
+    } else return;
+}
