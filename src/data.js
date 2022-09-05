@@ -41,7 +41,7 @@ let shopItemsData = [{
     img: "images/redpantie.jpeg"
 },
 {
-    id: " DReampantie",
+    id: "Dreampantie",
     name: "Dream Pantie",
     price: 50,
     description: "Lorem ipsum dolor sit, amet consectetur adipisicing elit.",
